@@ -1,0 +1,88 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background: linear-gradient(hsl(210, 100%, 73%), hsl(210, 100%, 43%));
+    font-family: 'Source Sans Pro',sans-serif;
+    pointer-events: none;
+}
+#container{
+    width: 100vw;
+    height: 100vh;
+    display: -ms-grid;
+    display: grid;
+    
+    grid-template-columns: 10vh auto 25vh auto 10vh;
+    grid-template-rows: 10vh calc(50vh - 10vh - 10vh / 2) 10vh auto 10vh;
+    grid-template-areas: 
+        "icon . . . ."
+        ". title title title ."
+        ". . content . ."
+        ". . . . ."
+        ". . . . github";
+}
+
+/*Icon*/
+.icon{
+    grid-area: icon;
+}
+
+.icon-img{
+    width: 100%;
+    height: 100%;
+}
+
+/*Button*/
+.content{
+    grid-area: content;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,hsl(219, 85%, 37%), hsl(219, 85%, 47%));
+    color: white;
+    font-size: 200%;
+    border-radius: 25vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow: 0px 10px 0px hsl(219, 85%, 17%);
+    transition: filter linear 0.1s;
+}
+
+.content:hover{
+    filter: brightness(150%);
+}
+
+/*Title*/
+.title{
+    grid-area: title;
+
+    justify-self: center;
+    align-self: center;
+    
+    font-size: 4vw;
+    color: white;
+    text-shadow: 5px 5px 10px black;
+    
+}
+
+/*Github*/
+.github{
+    grid-area: github;
+    justify-self: center;
+    align-self: center;
+}
+
+.github-icon{
+    font-size: 8vh;
+    transition: color linear 0.1s;
+}
+
+.github-icon:hover{
+    color: hsl(0, 0%, 75%);
+}
+
+/*Misc.*/
+a{
+    pointer-events: auto;
+    color: white;
+    text-decoration: inherit;
+}
