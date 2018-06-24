@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AniListify</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="icon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="icon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="icon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="icon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16.png">
+    <link rel="apple-touch-icon" href="icon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="icon/favicon-144.png">
+    <meta name="msapplication-config" content="icon/browserconfig.xml">
+    <!-- ****** faviconit.com favicons ****** -->
+</head>
+<body>
+    <a href="javascript:(function(){var query='query($id: Int, $type: MediaType){Media(idMal: $id, type: $type){siteUrl}}';var res=/^\/(anime|manga)\/(\d+)/.exec(window.location.pathname);if(res!=undefined&&window.location.host=='myanimelist.net'){var
+    type=res[1].toUpperCase();var id=res[2];var form={};form.query=query;form.variables={id:id,type:type};var formjson=JSON.stringify(form);console.log(formjson);var
+    xhr=new XMLHttpRequest();xhr.open('POST','https://graphql.anilist.co/',!0);xhr.setRequestHeader('Content-Type','application/json');xhr.onload=function(){console.log(this.responseText);try{var
+    response=JSON.parse(this.responseText).data.Media.siteUrl;console.log(response);window.location=response}catch(e){alert('Error
+    acquiring AniList data');console.log(e)}};xhr.send(formjson)}else{alert('Invalid site')}})()">AniListify</a>
+</body>
+</html>
