@@ -59,7 +59,17 @@ body{
     -ms-grid-column-span: 3;
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
+    text-align: center;
     
+}
+
+.small-text{
+    font-size: 40%;
+    color: hsl(219, 100%, 27%);
+}
+
+#help{
+    display: none;
 }
 
 /*Button*/

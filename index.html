@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>AniListify</title>
     <link rel="stylesheet" href="style.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="icon/favicon.ico">
@@ -41,7 +41,13 @@
         </div>
 
         <div class="title">
-            Drag & Drop this button to your Bookmart bar
+            <span>
+                Drag & Drop this button to your Bookmark bar
+            </span>
+            <br>
+            <a class="small-text enabled" id="help" href="" target="_blank">
+                No Bookmark bar? Here is how to enable it.
+            </a>
         </div>
 
         <a href="
@@ -59,6 +65,31 @@
         document.getElementById("bookmark").addEventListener("click", function(e) {
            e.preventDefault(); 
         });
+
+        var isSupported = false;
+        var link = "";
+
+        if (navigator.vendor == "Google Inc.") {
+            isSupported = true;
+            link = "https://www.lifewire.com/how-to-always-show-the-google-chrome-bookmarks-bar-4103621";
+        }else if (/Firefox\/\d+\.\d+$/.test(navigator.userAgent)) {
+            isSupported = true;
+            link = "https://support.mozilla.org/en-US/kb/bookmarks-toolbar-display-favorite-websites#w_show-or-hide-the-bookmarks-toolbar";
+        }else if (/Edge\/\d+\.\d+$/.test(navigator.userAgent)) {
+            // I just had to add IE11 support today, so IE11 works but as it turns out Bookmarklets are quite a but harder in Edge
+            // Ohh well
+            isSupported = false;
+            var text = document.getElementById("help");
+            text.style.display = "inherit";
+            text.innerText = "Click here for instructions"
+            text.href = "https://www.howtogeek.com/231775/how-to-install-and-use-bookmarklets-in-microsoft-edge/";
+        }
+
+        if (isSupported) {
+            var text = document.getElementById("help");
+            text.style.display = "inherit";
+            text.href = link;
+        }
     </script>
 </body>
 </html>
