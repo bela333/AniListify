@@ -8,17 +8,26 @@ body{
 #container{
     width: 100vw;
     height: 100vh;
-    display: -ms-grid;
     display: grid;
     
     grid-template-columns: 10vh auto 25vh auto 10vh;
     grid-template-rows: 10vh calc(50vh - 10vh - 10vh / 2) 10vh auto 10vh;
+    
+    
     grid-template-areas: 
-        "icon . . . ."
-        ". title title title ."
-        ". . content . ."
-        ". . . . ."
-        ". . . . github";
+    "icon . . . ."
+    ". title title title ."
+    ". . content . ."
+    ". . . . ."
+    ". . . . github";
+    
+    /* Internet Explorer support*/
+    display: -ms-grid;
+
+    -ms-grid-columns: 10vh calc((100vw - 45vh) / 2) 25vh calc((100vw - 45vh) / 2) 10vh;
+    -ms-grid-rows: 10vh calc(50vh - 10vh - 10vh / 2) 10vh 35vh 10vh;
+
+
 }
 
 /*Icon*/
@@ -29,6 +38,28 @@ body{
 .icon-img{
     width: 100%;
     height: 100%;
+}
+
+/*Title*/
+.title{
+    grid-area: title;
+
+    justify-self: center;
+    align-self: center;
+    
+    font-size: 4vw;
+    color: white;
+    text-shadow: 5px 5px 10px black;
+
+    /* Internet Explorer support*/
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 3;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    
 }
 
 /*Button*/
@@ -45,23 +76,19 @@ body{
     align-items:center;
     box-shadow: 0px 10px 0px hsl(219, 85%, 17%);
     transition: filter linear 0.1s;
+
+    /* Internet Explorer support*/
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
 }
 
 .content:hover{
     filter: brightness(150%);
-}
-
-/*Title*/
-.title{
-    grid-area: title;
-
-    justify-self: center;
-    align-self: center;
-    
-    font-size: 4vw;
-    color: white;
-    text-shadow: 5px 5px 10px black;
-    
 }
 
 /*Github*/
@@ -69,6 +96,15 @@ body{
     grid-area: github;
     justify-self: center;
     align-self: center;
+
+    /* Internet Explorer support*/
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
 }
 
 .github-icon{
